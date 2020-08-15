@@ -11,8 +11,63 @@
 
 </header>
 <body>
+    <div name="container">
+        <h1 id="frontPage">Code Quiz Challenge</h1>
+        <h2 id="question"></h2>
+        <div id="answerChoices"></div>
+        <button id="nextButton">next</button>
+        <div id="result"></div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            
+            var button = document.getElementById("nextButton")
+            var counter = 0
+            var questionOne = {question:"Commonly used data types DO NOT include:", answers:["false", "true"], correct:"true"}
+            var questionTwo = {question:"The condition in an if/else statement is enclosed within _______.", answers:["false", "true"], correct:"true"}
+            var questionThere = {question:"Arrays in JavaScript can be used to store _______.", answers:["false", "true"], correct:"false"}
+            var questionFour = {question:"String values must be enclosed within _______ when being assigned to variables.", answers:["false", "true"], correct:"false"}
+            var questionFive = {question:"A very useful tool used during development and debugging for printing content to the debugger is:", answers:["false", "true"], correct:"true"}
+            var questionArray = [{question:"Commonly used data types DO NOT include:", answers:["false", "true"], correct:"true"},  {question:"The condition in an if/else statement is enclosed within _______.", answers:["false", "true"], correct:"true"}, {question:"Arrays in JavaScript can be used to store _______.", answers:["false", "true"], correct:"false"}, {question:"String values must be enclosed within _______ when being assigned to variables.", answers:["false", "true"], correct:"false"}, {question:"A very useful tool used during development and debugging for printing content to the debugger is:", answers:["false", "true"], correct:"true"}]
+
+            $("#question").text(questionArray[counter].question);
+            button.addEventListener("click", function() {
+                counter ++
+                displayQuestion()
+            })
+            function displayQuestion(){
+                $("#question").text(questionArray[counter].question);
+                for (let index = 0; index < questionArray[counter].answers.length; index++) {
+                    var answerButton = "<button>" + questionArray[counter].answers[index]
+                        $("#answerChoices").append(answerButton)
+                }
+            }
+            for (var i = 0; i < questionArray.length; i++) {
+                console.log(questionArray[i].question)
+                console.log(questionArray[i].answers)
+            }
+            displayQuestion()
+
+            // localStorage.setItem("lastname", "Smith");
+            // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+
+        });
     
-    
+    // 1. will need to make buttons with bootstrap and possibly center text, could center using jquery
+    // 2. need to make questions
+    // 3. need to make corret and incorrect answers for questions.
+    // 4. will need to alert user if answer is correct or incorrect under question after answered
+    // 5. when questions get answered they must disappear and bring up a new one.
+    // 6. will need to keep track of correctly answered questions and give score at end of quiz.
+    // 7. will need to a count down in the top right corner.
+    // 8. will need shortcut to view highscores. 
+    // 9. will need everything saved to local storage.
+    // 10. at end of quiz prompt will show to say what score you made.
+    // 11. at end of quiz will need a box to symbolize entered name to link to high score
+    // 12. will need to keep local storage of high scores.
+    // 13. will need 2 buttons on highscore page saying, play again and clear highscores
+
+    </script>
 
 </body>
 <html>
